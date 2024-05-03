@@ -36,7 +36,7 @@
 				</div>
 				<div class="readme">
 					<p>
-						<span class="b">你好，我是小竹，目前19岁啦！</span>
+						<span class="b" id="age">你好，我是小竹，目前19岁啦！</span>
 						<br>我十分热爱科技、音乐和未知的事物，对探索和发现充满了热情。我特别享受人与人之间的联系和交流所带来的喜悦。对于这个充满趣味和神秘的世界，我的好奇心永远不会停止。
 						<br>我目前在南工计算机与软件学院攻读人工智能专业，这是一个充满挑战和潜力的领域。我不断探索、学习，同时也渴望结识更多有趣的灵魂。如果你也对这个世界充满好奇，那么我很期待与你分享彼此的发现和经验。
 						<br>同时我还是许多网站的主人，例如
@@ -219,7 +219,21 @@
 			</p>
 		</div>
 	</div>
-
+	<script>
+    // 获取当前日期
+    const currentDate = new Date();
+    // 获取出生日期
+    const birthDate = new Date('2005-01-28');
+    // 计算年龄
+    let age = currentDate.getFullYear() - birthDate.getFullYear();
+    // 如果当前月份小于出生月份，或者当前月份等于出生月份但是当前日期小于出生日期，则年龄减一
+    if (currentDate.getMonth() < birthDate.getMonth() || 
+        (currentDate.getMonth() === birthDate.getMonth() && currentDate.getDate() < birthDate.getDate())) {
+      age--;
+    }
+    // 显示年龄
+    document.getElementById('age').textContent = `你好，我是小竹，目前${age}岁啦！`;
+	</script>
 	<script src="source/zepto.min.js"></script>
 	<script src="source/page.js"></script>
 </body>
