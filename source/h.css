@@ -226,6 +226,12 @@ body {
     line-height: 1.35em;
 }
 
+@media screen and (max-width: 1000px) {
+    .hello h1 {
+        font-size: 40px;
+    }
+}
+
 #slogan {
     margin-top: 100px;
 }
