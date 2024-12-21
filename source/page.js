@@ -250,3 +250,14 @@ function nav (page){
       break;
   }
 }
+
+$(document).ready(function () {
+  const currentDate = new Date();
+  const birthDate = new Date('2005-01-28');
+  let age = currentDate.getFullYear() - birthDate.getFullYear();
+  if (currentDate.getMonth() < birthDate.getMonth() || 
+      (currentDate.getMonth() === birthDate.getMonth() && currentDate.getDate() < birthDate.getDate())) {
+      age--;
+  }
+  $('#age').text(`你好，我是小竹，目前${age}岁啦！`);
+});
