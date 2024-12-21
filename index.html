@@ -36,7 +36,7 @@
 				</div>
 				<div class="readme">
 					<p>
-						<span class="b" id="age">你好，我是小竹，目前19岁啦！</span>
+						<span class="b" id="age">你好，我是小竹，目前?岁啦！</span>
 						<br>我十分热爱科技，音乐和未知的事物。对探索和发现充满了热情。
 						<br>战略远见，独立思考，追求高效与完美，要求严格且直言不讳。我的性格类型：<a href="https://www.16personalities.com/ch/结果/intj-t/m/rb1vf7a29" target="_blank">INTJ-T</a>。
 						<br>我目前在南工计软学院读人工智能专业，这是一个充满挑战和潜力的领域。
@@ -205,16 +205,6 @@
 			</p>
 		</div>
 	</div>
-	<script>
-    const currentDate = new Date();
-    const birthDate = new Date('2005-01-28');
-    let age = currentDate.getFullYear() - birthDate.getFullYear();
-    if (currentDate.getMonth() < birthDate.getMonth() || 
-        (currentDate.getMonth() === birthDate.getMonth() && currentDate.getDate() < birthDate.getDate())) {
-      age--;
-    }
-    document.getElementById('age').textContent = `你好，我是小竹，目前${age}岁啦！`;
-	</script>
 	<script src="source/zepto.min.js"></script>
 	<script src="source/page.js"></script>
 </body>
