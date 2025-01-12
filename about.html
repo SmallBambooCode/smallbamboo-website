@@ -1,0 +1,667 @@
+<!doctype html>
+<html style='font-size:16px !important'>
+<head>
+<meta charset='UTF-8'><meta name='viewport' content='width=device-width initial-scale=1'>
+
+<style type='text/css'>html {overflow-x: initial !important;}:root { --bg-color:#ffffff; --text-color:#333333; --select-text-bg-color:#B5D6FC; --select-text-font-color:auto; --monospace:"Lucida Console",Consolas,"Courier",monospace; --title-bar-height:20px; }
+.mac-os-11 { --title-bar-height:28px; }
+html { font-size: 14px; background-color: var(--bg-color); color: var(--text-color); font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; -webkit-font-smoothing: antialiased; }
+body { margin: 0px; padding: 0px; height: auto; inset: 0px; font-size: 1rem; line-height: 1.42857; overflow-x: hidden; background: inherit; tab-size: 4; }
+iframe { margin: auto; }
+a.url { word-break: break-all; }
+a:active, a:hover { outline: 0px; }
+.in-text-selection, ::selection { text-shadow: none; background: var(--select-text-bg-color); color: var(--select-text-font-color); }
+#write { margin: 0px auto; height: auto; width: inherit; word-break: normal; overflow-wrap: break-word; position: relative; white-space: normal; overflow-x: visible; padding-top: 36px; }
+#write.first-line-indent p { text-indent: 2em; }
+#write.first-line-indent li p, #write.first-line-indent p * { text-indent: 0px; }
+#write.first-line-indent li { margin-left: 2em; }
+.for-image #write { padding-left: 8px; padding-right: 8px; }
+body.typora-export { padding-left: 30px; padding-right: 30px; }
+.typora-export .footnote-line, .typora-export li, .typora-export p { white-space: pre-wrap; }
+.typora-export .task-list-item input { pointer-events: none; }
+@media screen and (max-width: 500px) {
+  body.typora-export { padding-left: 0px; padding-right: 0px; }
+  #write { padding-left: 20px; padding-right: 20px; }
+}
+#write li > figure:last-child { margin-bottom: 0.5rem; }
+#write ol, #write ul { position: relative; }
+img { max-width: 100%; vertical-align: middle; image-orientation: from-image; }
+button, input, select, textarea { color: inherit; font: inherit; }
+input[type="checkbox"], input[type="radio"] { line-height: normal; padding: 0px; }
+*, ::after, ::before { box-sizing: border-box; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p, #write pre { width: inherit; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p { position: relative; }
+p { line-height: inherit; }
+h1, h2, h3, h4, h5, h6 { break-after: avoid-page; break-inside: avoid; orphans: 4; }
+p { orphans: 4; }
+h1 { font-size: 2rem; }
+h2 { font-size: 1.8rem; }
+h3 { font-size: 1.6rem; }
+h4 { font-size: 1.4rem; }
+h5 { font-size: 1.2rem; }
+h6 { font-size: 1rem; }
+.md-math-block, .md-rawblock, h1, h2, h3, h4, h5, h6, p { margin-top: 1rem; margin-bottom: 1rem; }
+.hidden { display: none; }
+.md-blockmeta { color: rgb(204, 204, 204); font-weight: 700; font-style: italic; }
+a { cursor: pointer; }
+sup.md-footnote { padding: 2px 4px; background-color: rgba(238, 238, 238, 0.7); color: rgb(85, 85, 85); border-radius: 4px; cursor: pointer; }
+sup.md-footnote a, sup.md-footnote a:hover { color: inherit; text-transform: inherit; text-decoration: inherit; }
+#write input[type="checkbox"] { cursor: pointer; width: inherit; height: inherit; }
+figure { overflow-x: auto; margin: 1.2em 0px; max-width: calc(100% + 16px); padding: 0px; }
+figure > table { margin: 0px; }
+thead, tr { break-inside: avoid; break-after: auto; }
+thead { display: table-header-group; }
+table { border-collapse: collapse; border-spacing: 0px; width: 100%; overflow: auto; break-inside: auto; text-align: left; }
+table.md-table td { min-width: 32px; }
+.CodeMirror-gutters { border-right: 0px; background-color: inherit; }
+.CodeMirror-linenumber { user-select: none; }
+.CodeMirror { text-align: left; }
+.CodeMirror-placeholder { opacity: 0.3; }
+.CodeMirror pre { padding: 0px 4px; }
+.CodeMirror-lines { padding: 0px; }
+div.hr:focus { cursor: none; }
+#write pre { white-space: pre-wrap; }
+#write.fences-no-line-wrapping pre { white-space: pre; }
+#write pre.ty-contain-cm { white-space: normal; }
+.CodeMirror-gutters { margin-right: 4px; }
+.md-fences { font-size: 0.9rem; display: block; break-inside: avoid; text-align: left; overflow: visible; white-space: pre; background: inherit; position: relative !important; }
+.md-fences-adv-panel { width: 100%; margin-top: 10px; text-align: center; padding-top: 0px; padding-bottom: 8px; overflow-x: auto; }
+#write .md-fences.mock-cm { white-space: pre-wrap; }
+.md-fences.md-fences-with-lineno { padding-left: 0px; }
+#write.fences-no-line-wrapping .md-fences.mock-cm { white-space: pre; overflow-x: auto; }
+.md-fences.mock-cm.md-fences-with-lineno { padding-left: 8px; }
+.CodeMirror-line, twitterwidget { break-inside: avoid; }
+svg { break-inside: avoid; }
+.footnotes { opacity: 0.8; font-size: 0.9rem; margin-top: 1em; margin-bottom: 1em; }
+.footnotes + .footnotes { margin-top: 0px; }
+.md-reset { margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: top; background: 0px 0px; text-decoration: none; text-shadow: none; float: none; position: static; width: auto; height: auto; white-space: nowrap; cursor: inherit; -webkit-tap-highlight-color: transparent; line-height: normal; font-weight: 400; text-align: left; box-sizing: content-box; direction: ltr; }
+li div { padding-top: 0px; }
+blockquote { margin: 1rem 0px; }
+li .mathjax-block, li p { margin: 0.5rem 0px; }
+li blockquote { margin: 1rem 0px; }
+li { margin: 0px; position: relative; }
+blockquote > :last-child { margin-bottom: 0px; }
+blockquote > :first-child, li > :first-child { margin-top: 0px; }
+.footnotes-area { color: rgb(136, 136, 136); margin-top: 0.714rem; padding-bottom: 0.143rem; white-space: normal; }
+#write .footnote-line { white-space: pre-wrap; }
+@media print {
+  body, html { border: 1px solid transparent; height: 99%; break-after: avoid; break-before: avoid; font-variant-ligatures: no-common-ligatures; }
+  #write { margin-top: 0px; padding-top: 0px; border-color: transparent !important; padding-bottom: 0px !important; }
+  .typora-export * { -webkit-print-color-adjust: exact; }
+  .typora-export #write { break-after: avoid; }
+  .typora-export #write::after { height: 0px; }
+  .is-mac table { break-inside: avoid; }
+  .typora-export-show-outline .typora-export-sidebar { display: none; }
+}
+.footnote-line { margin-top: 0.714em; font-size: 0.7em; }
+a img, img a { cursor: pointer; }
+pre.md-meta-block { font-size: 0.8rem; min-height: 0.8rem; white-space: pre-wrap; background: rgb(204, 204, 204); display: block; overflow-x: hidden; }
+p > .md-image:only-child:not(.md-img-error) img, p > img:only-child { display: block; margin: auto; }
+#write.first-line-indent p > .md-image:only-child:not(.md-img-error) img { left: -2em; position: relative; }
+p > .md-image:only-child { display: inline-block; width: 100%; }
+#write .MathJax_Display { margin: 0.8em 0px 0px; }
+.md-math-block { width: 100%; }
+.md-math-block:not(:empty)::after { display: none; }
+.MathJax_ref { fill: currentcolor; }
+[contenteditable="true"]:active, [contenteditable="true"]:focus, [contenteditable="false"]:active, [contenteditable="false"]:focus { outline: 0px; box-shadow: none; }
+.md-task-list-item { position: relative; list-style-type: none; }
+.task-list-item.md-task-list-item { padding-left: 0px; }
+.md-task-list-item > input { position: absolute; top: 0px; left: 0px; margin-left: -1.2em; margin-top: calc(1em - 10px); border: none; }
+.math { font-size: 1rem; }
+.md-toc { min-height: 3.58rem; position: relative; font-size: 0.9rem; border-radius: 10px; }
+.md-toc-content { position: relative; margin-left: 0px; }
+.md-toc-content::after, .md-toc::after { display: none; }
+.md-toc-item { display: block; color: rgb(65, 131, 196); }
+.md-toc-item a { text-decoration: none; }
+.md-toc-inner:hover { text-decoration: underline; }
+.md-toc-inner { display: inline-block; cursor: pointer; }
+.md-toc-h1 .md-toc-inner { margin-left: 0px; font-weight: 700; }
+.md-toc-h2 .md-toc-inner { margin-left: 2em; }
+.md-toc-h3 .md-toc-inner { margin-left: 4em; }
+.md-toc-h4 .md-toc-inner { margin-left: 6em; }
+.md-toc-h5 .md-toc-inner { margin-left: 8em; }
+.md-toc-h6 .md-toc-inner { margin-left: 10em; }
+@media screen and (max-width: 48em) {
+  .md-toc-h3 .md-toc-inner { margin-left: 3.5em; }
+  .md-toc-h4 .md-toc-inner { margin-left: 5em; }
+  .md-toc-h5 .md-toc-inner { margin-left: 6.5em; }
+  .md-toc-h6 .md-toc-inner { margin-left: 8em; }
+}
+a.md-toc-inner { font-size: inherit; font-style: inherit; font-weight: inherit; line-height: inherit; }
+.footnote-line a:not(.reversefootnote) { color: inherit; }
+.reversefootnote { font-family: ui-monospace, sans-serif; }
+.md-attr { display: none; }
+.md-fn-count::after { content: "."; }
+code, pre, samp, tt { font-family: var(--monospace); }
+kbd { margin: 0px 0.1em; padding: 0.1em 0.6em; font-size: 0.8em; color: rgb(36, 39, 41); background: rgb(255, 255, 255); border: 1px solid rgb(173, 179, 185); border-radius: 3px; box-shadow: rgba(12, 13, 14, 0.2) 0px 1px 0px, rgb(255, 255, 255) 0px 0px 0px 2px inset; white-space: nowrap; vertical-align: middle; }
+.md-comment { color: rgb(162, 127, 3); opacity: 0.6; font-family: var(--monospace); }
+code { text-align: left; vertical-align: initial; }
+a.md-print-anchor { white-space: pre !important; border-width: initial !important; border-style: none !important; border-color: initial !important; display: inline-block !important; position: absolute !important; width: 1px !important; right: 0px !important; outline: 0px !important; background: 0px 0px !important; text-decoration: initial !important; text-shadow: initial !important; }
+.os-windows.monocolor-emoji .md-emoji { font-family: "Segoe UI Symbol", sans-serif; }
+.md-diagram-panel > svg { max-width: 100%; }
+[lang="flow"] svg, [lang="mermaid"] svg { max-width: 100%; height: auto; }
+[lang="mermaid"] .node text { font-size: 1rem; }
+table tr th { border-bottom: 0px; }
+video { max-width: 100%; display: block; margin: 0px auto; }
+iframe { max-width: 100%; width: 100%; border: none; }
+.highlight td, .highlight tr { border: 0px; }
+mark { background: rgb(255, 255, 0); color: rgb(0, 0, 0); }
+.md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong { color: inherit; }
+.md-expand mark .md-meta { opacity: 0.3 !important; }
+mark .md-meta { color: rgb(0, 0, 0); }
+@media print {
+  .typora-export h1, .typora-export h2, .typora-export h3, .typora-export h4, .typora-export h5, .typora-export h6 { break-inside: avoid; }
+}
+.md-diagram-panel .messageText { stroke: none !important; }
+.md-diagram-panel .start-state { fill: var(--node-fill); }
+.md-diagram-panel .edgeLabel rect { opacity: 1 !important; }
+.md-fences.md-fences-math { font-size: 1em; }
+.md-fences-advanced:not(.md-focus) { padding: 0px; white-space: nowrap; border: 0px; }
+.md-fences-advanced:not(.md-focus) { background: inherit; }
+.typora-export-show-outline .typora-export-content { max-width: 1440px; margin: auto; display: flex; flex-direction: row; }
+.typora-export-sidebar { width: 300px; font-size: 0.8rem; margin-top: 80px; margin-right: 18px; }
+.typora-export-show-outline #write { --webkit-flex:2; flex: 2 1 0%; }
+.typora-export-sidebar .outline-content { position: fixed; top: 0px; max-height: 100%; overflow: hidden auto; padding-bottom: 30px; padding-top: 60px; width: 300px; }
+@media screen and (max-width: 1024px) {
+  .typora-export-sidebar, .typora-export-sidebar .outline-content { width: 240px; }
+}
+@media screen and (max-width: 800px) {
+  .typora-export-sidebar { display: none; }
+}
+.outline-content li, .outline-content ul { margin-left: 0px; margin-right: 0px; padding-left: 0px; padding-right: 0px; list-style: none; }
+.outline-content ul { margin-top: 0px; margin-bottom: 0px; }
+.outline-content strong { font-weight: 400; }
+.outline-expander { width: 1rem; height: 1.42857rem; position: relative; display: table-cell; vertical-align: middle; cursor: pointer; padding-left: 4px; }
+.outline-expander::before { content: ""; position: relative; font-family: Ionicons; display: inline-block; font-size: 8px; vertical-align: middle; }
+.outline-item { padding-top: 3px; padding-bottom: 3px; cursor: pointer; }
+.outline-expander:hover::before { content: ""; }
+.outline-h1 > .outline-item { padding-left: 0px; }
+.outline-h2 > .outline-item { padding-left: 1em; }
+.outline-h3 > .outline-item { padding-left: 2em; }
+.outline-h4 > .outline-item { padding-left: 3em; }
+.outline-h5 > .outline-item { padding-left: 4em; }
+.outline-h6 > .outline-item { padding-left: 5em; }
+.outline-label { cursor: pointer; display: table-cell; vertical-align: middle; text-decoration: none; color: inherit; }
+.outline-label:hover { text-decoration: underline; }
+.outline-item:hover { border-color: rgb(245, 245, 245); background-color: var(--item-hover-bg-color); }
+.outline-item:hover { margin-left: -28px; margin-right: -28px; border-left: 28px solid transparent; border-right: 28px solid transparent; }
+.outline-item-single .outline-expander::before, .outline-item-single .outline-expander:hover::before { display: none; }
+.outline-item-open > .outline-item > .outline-expander::before { content: ""; }
+.outline-children { display: none; }
+.info-panel-tab-wrapper { display: none; }
+.outline-item-open > .outline-children { display: block; }
+.typora-export .outline-item { padding-top: 1px; padding-bottom: 1px; }
+.typora-export .outline-item:hover { margin-right: -8px; border-right: 8px solid transparent; }
+.typora-export .outline-expander::before { content: "+"; font-family: inherit; top: -1px; }
+.typora-export .outline-expander:hover::before, .typora-export .outline-item-open > .outline-item > .outline-expander::before { content: "−"; }
+.typora-export-collapse-outline .outline-children { display: none; }
+.typora-export-collapse-outline .outline-item-open > .outline-children, .typora-export-no-collapse-outline .outline-children { display: block; }
+.typora-export-no-collapse-outline .outline-expander::before { content: "" !important; }
+.typora-export-show-outline .outline-item-active > .outline-item .outline-label { font-weight: 700; }
+.md-inline-math-container mjx-container { zoom: 0.95; }
+mjx-container { break-inside: avoid; }
+
+
+
+
+/* Webfont: HKGrotesk-Light *//* Webfont: HKGrotesk-LightItalic *//* Webfont: HKGrotesk-Regular *//* Webfont: HKGrotesk-Italic *//* Webfont: HKGrotesk-Medium *//* Webfont: HKGrotesk-MediumItalic *//* Webfont: HKGrotesk-Bold *//* Webfont: HKGrotesk-BoldItalic *//* Webfont: OfficeCodePro-Light *//* Webfont: OfficeCodePro-LightItalic *//* Webfont: OfficeCodePro-Regular *//* Webfont: OfficeCodePro-Italic *//* Webfont: OfficeCodePro-Bold *//* Webfont: OfficeCodePro-BoldItalic */html {
+    background: #FFFFFF;
+    /* or
+    text-shadow: #fff 0px 1px 1px;*/
+    text-rendering: geometricPrecision; 
+}
+
+body {
+    font-family: 'HKGrotesk', sans-serif;
+    font-weight: 300;
+    font-size: 1.275em;
+    letter-spacing: 0px; 
+    color: #333333;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: subpixel-antialiased;
+    /*-webkit-text-stroke: 0.45px;
+    // or*/
+    -webkit-text-stroke: 0.45px rgba(51, 51, 51, 0.97);
+    line-height: 1.6em;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+}
+
+strong {
+    font-family: 'HKGrotesk', serif; 
+    font-weight: 500;
+    color: #303336;
+} 
+
+em {
+    font-family: 'HKGrotesk', serif; 
+    font-weight: normal; 
+    font-style: italic;
+} 
+
+mark {
+    color: #000000;
+    background: #D3FFA4;
+    padding: 1px 1px 1px 1px;
+}
+
+div.md-toc {
+    font-family: 'HKGrotesk', serif;
+    font-size: 18px; 
+}
+
+#write{
+    max-width: 710px;
+    margin: 0 auto;
+    padding: 20px 30px 40px 30px;
+    padding-top: 20px;
+    padding-bottom: 100px;
+}
+#write > ul:first-child,
+#write > ol:first-child{
+    margin-top: 40px;
+}
+
+body > *:first-child {
+    margin-top: 0 !important;
+}
+
+body > *:last-child {
+    margin-bottom: 0 !important;
+}
+
+a {
+    color: #DD4C4F;
+    text-decoration: none;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: subpixel-antialiased;
+    /*-webkit-text-stroke: 0.45px;
+    // or*/
+    -webkit-text-stroke: 0.55px rgba(221, 76, 79, 0.97);
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: "HKGrotesk",sans-serif;
+    font-weight: bold;
+    letter-spacing: -0.45px; 
+    word-spacing: 0.5px;
+    position: relative;
+    cursor: text;
+}
+
+h1:hover a.anchor,
+h2:hover a.anchor,
+h3:hover a.anchor,
+h4:hover a.anchor,
+h5:hover a.anchor,
+h6:hover a.anchor {
+    /*background: url("file:///C://Users//SmallBamboo//AppData//Roaming//images/modules/styleguide/para.png") no-repeat 10px center;*/
+    text-decoration: none;
+}
+h1 tt,
+h1 code {
+    font-size: inherit;
+}
+h2 tt,
+h2 code {
+    font-size: inherit;
+}
+h3 tt,
+h3 code {
+    font-size: inherit;
+}
+h4 tt,
+h4 code {
+    font-size: inherit;
+}
+h5 tt,
+h5 code {
+    font-size: inherit;
+}
+h6 tt,
+h6 code {
+    font-size: inherit;
+}
+
+h1 {
+    font-size: 2.4em;
+    margin-top: 1.2rem;
+    margin-bottom: 1.2rem;
+    padding-bottom: .3em;
+    line-height: 1.2;
+    letter-spacing: -0.45px; 
+    word-spacing: 0.5px;
+}
+h2 {
+    font-size: 1.8em;
+    margin-top: 1.2rem;
+    margin-bottom: 1.2rem;
+    padding-bottom: .3em;
+    line-height: 1.2;
+    letter-spacing: -0.45px; 
+    word-spacing: 0.5px;
+}
+h3 {
+    font-size: 1.5em;
+    margin-top: 1.2rem;
+    margin-bottom: 1.2rem;
+    padding-bottom: .3em;
+    line-height: 1.2;
+    letter-spacing: -0.45px; 
+    word-spacing: 0.5px;
+}
+h4 {
+    font-size: 1.2em;
+    line-height: 1.2;
+    padding-bottom: .3em;
+    letter-spacing: -0.45px; 
+    word-spacing: 0.5px;}
+h5 {
+    font-size: 1.1em;
+    line-height: 1.2;
+    padding-bottom: .3em;
+    letter-spacing: -0.45px; 
+    word-spacing: 0.5px;}
+h6 {
+    font-size: 1.0em;
+    line-height: 1.2;
+    padding-bottom: .3em;
+    letter-spacing: -0.45px; 
+    word-spacing: 0.5px;
+}
+
+
+  h1 { color: #303336;}
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 { color: #303336;}
+
+p,
+blockquote,
+ul,
+ol,
+dl,
+table{
+    list-style-type: disc 
+    margin: 0.8em 0;
+    margin-top: 1.6rem;
+    margin-bottom: 1.6rem;
+}
+hr {
+    height: 4px;
+    padding: 0;
+    margin: 16px 0;
+    background-color: #FFFFFF;
+    border: 0 none;
+    overflow: hidden;
+    box-sizing: content-box;
+    border-bottom: 1px solid #ddd;
+}
+
+body > h2:first-child {
+    margin-top: 0;
+    padding-top: 0;
+}
+body > h1:first-child {
+    margin-top: 0;
+    padding-top: 0;
+}
+body > h1:first-child + h2 {
+    margin-top: 0;
+    padding-top: 0;
+}
+body > h3:first-child,
+body > h4:first-child,
+body > h5:first-child,
+body > h6:first-child {
+    margin-top: 0;
+    padding-top: 0;
+}
+a:first-child h1,
+a:first-child h2,
+a:first-child h3,
+a:first-child h4,
+a:first-child h5,
+a:first-child h6 {
+    margin-top: 0;
+    padding-top: 0;
+}
+h1 p,
+h2 p,
+h3 p,
+h4 p,
+h5 p,
+h6 p {
+    margin-top: 0;
+}
+li p.first {
+    display: inline-block;
+}
+ul,
+ol {
+    padding-left: 30px;
+}
+ul:first-child,
+ol:first-child {
+    margin-top: 0;
+}
+ul:last-child,
+ol:last-child {
+    margin-bottom: 0;
+}
+blockquote {
+    color: #26344A;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: subpixel-antialiased;
+    /*-webkit-text-stroke: 0.45px;
+    // or*/
+    -webkit-text-stroke: 0.45px rgba(38, 52, 74, 0.97);
+    border-left: 3.5px solid #DD4C4F;
+    margin-left: -1em;
+    padding: 0.2em 1em;
+    padding-top: 2px;
+    padding-bottom: 2px;
+}
+blockquote blockquote {
+    padding-right: 0;
+}
+table {
+    padding: 0;
+    word-break: initial;
+}
+table tr {
+    border-top: 1px solid #cccccc;
+    margin: 0;
+    padding: 0;
+}
+table tr:nth-child(2n) {
+    background-color: #f8f8f8;
+}
+table tr th {
+    font-weight: bold;
+    border: 1px solid #cccccc;
+    text-align: left;
+    margin: 0;
+    padding: 6px 13px;
+}
+table tr td {
+    border: 1px solid #cccccc;
+    text-align: left;
+    margin: 0;
+    padding: 6px 13px;
+}
+table tr th:first-child,
+table tr td:first-child {
+    margin-top: 0;
+}
+table tr th:last-child,
+table tr td:last-child {
+    margin-bottom: 0;
+}
+
+.CodeMirror-gutters {
+    border-right: 1px solid #ddd;
+}
+
+.md-fences,
+code,
+tt {
+    border: 1px solid #ddd;
+    background: #f8f8f8;
+    padding: 0;
+    font-family: 'OfficeCodePro', monospace;
+    padding: 2px 4px 0px 4px;
+    font-size: 17px;
+}
+
+.md-fences {
+    font-family: 'OfficeCodePro', monospace;
+    margin-bottom: 15px;
+    margin-top: 15px;
+    padding: 0.2em 1em;
+    padding-top: 8px;
+    padding-bottom: 6px;
+}
+.task-list{
+    padding-left: 0;
+}
+
+.task-list-item {
+    padding-left:32px;
+}
+
+.task-list-item input {
+  top: 3px;
+  left: 8px;
+}
+
+@media screen and (min-width: 914px) {
+    /*body {
+        width: 854px;
+        margin: 0 auto;
+    }*/
+}
+@media print {
+    html {
+        font-size: 13px;
+    }
+    table,
+    pre {
+        page-break-inside: avoid;
+    }
+    pre {
+        word-wrap: break-word;
+    }
+}
+
+.md-fences {
+    background-color: #E5E7EA;
+}
+#write pre.md-meta-block {
+    padding: 1rem;
+    font-size: 85%;
+    line-height: 1.45;
+    background-color: #f7f7f7;
+    border: 0;
+    border-radius: 3px;
+    color: #777777;
+    margin-top: 0 !important;
+}
+
+.mathjax-block>.code-tooltip {
+    bottom: .375rem;
+}
+
+#write>h3.md-focus:before{
+    left: -1.5625rem;
+    top: .375rem;
+}
+#write>h4.md-focus:before{
+    left: -1.5625rem;
+    top: .285714286rem;
+}
+#write>h5.md-focus:before{
+    left: -1.5625rem;
+    top: .285714286rem;
+}
+#write>h6.md-focus:before{
+    left: -1.5625rem;
+    top: .285714286rem;
+}
+.md-image>.md-meta {
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    font-family: Consolas, "Liberation Mono", Courier, monospace;
+    padding: 2px 4px 0px 4px;
+    font-size: 0.9em;
+    color: inherit;
+}
+
+.md-tag{
+    color: inherit;
+}
+
+.md-toc { 
+    margin-top:20px;
+    padding-bottom:20px;
+}
+
+.sidebar-tabs {
+    border-bottom: none;
+}
+
+
+#typora-quick-open {
+    border: 1px solid #ddd;
+    background-color: #f8f8f8;
+}
+
+#typora-quick-open-item {
+    background-color: #FAFAFA;
+    border-color: #FEFEFE #e5e5e5 #e5e5e5 #eee;
+    border-style: solid;
+    border-width: 1px;
+}
+
+#md-notification:before {
+    top: 10px;
+}
+
+/** focus mode */
+.on-focus-mode blockquote {
+    border-left-color: rgba(85, 85, 85, 0.12);
+}
+
+header, .context-menu, .megamenu-content, footer{
+    font-family: "Lyon Display", sans-serif;
+}
+
+.CodeMirror {
+    /* Set height, width, borders, and global font properties here */
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: subpixel-antialiased;
+    /*-webkit-text-stroke: 0.45px;
+    // or*/
+    font-family: 'OfficeCodePro', monospace;
+    font-size: 1.000em;
+}
+
+
+
+
+
+</style><title>关于我：SmallBamboo</title>
+<script charset="UTF-8" id="LA_COLLECT" src="//sdk.51.la/js-sdk-pro.min.js"></script>
+<script>LA.init({id:"Kfh95AfypnM1f4aE",ck:"Kfh95AfypnM1f4aE",autoTrack:true})</script>
+</head>
+<body class='typora-export os-windows'><div class='typora-export-content'>
+<div id='write'  class=''><h1 id='关于我smallbamboo'><span>关于我：SmallBamboo</span></h1><p><span>当创建这个Markdown文档后，心中有些迟疑，其实我也不知道该怎么介绍自己。</span></p><h2 id='简述'><span>简述</span></h2><p><span>你好，我是在河北的2022年冬奥会举办地长大的水瓶男，目前</span><code>{{datetime.now().year - 2005}}</code><span>岁，我十分热爱科技，音乐和未知的事物。对探索和发现充满了热情。身为INTJ-T，我具备战略远见，独立思考的能力，我追求高效与完美，要求严格且直言不讳。</span></p><p><span>建立</span><a href='https://www.smallbamboo.cn/projects/'><span>这些网站</span></a><span>的初衷其实是为了逃离那很少被人了解和欣赏的现实，在赛博世界中拥有一个展示自己的平台，也算是自己精心打造的一片空间吧。</span></p><h2 id='smallbamboo'><span>SmallBamboo？</span></h2><p><span>这个ID是最初购买Minecraft正版时选用的ID，那好像是初中时的事情了。目前小竹（SmallBamboo）这个昵称已经用了很久，之后也不会改变了。</span></p><p><span>为什么选择竹子？我小时在北方生活，见到竹子的频率很低，竹子一般分布于热带、亚热带至暖温带地区，而我生活的地方是温带大陆性季风气候。之所以选择竹子作为自己的昵称，是欣赏它的美好的品质。</span></p><blockquote><p><span>竹身形挺直，宁折不弯，曰正直； 竹虽有竹节，却不止步，曰奋进； 竹外直中通，襟怀若谷，曰虚怀； 竹有花深埋，素面朝天，曰质朴；竹一生一花，死亦无悔，曰奉献； 竹玉竹临风，顶天立地，曰卓尔；竹虽曰卓尔，却不似松，曰善群； 竹质地犹石，方可成器，曰性坚；竹化作符节，苏武秉持，曰操守； 竹载文传世，任劳任怨，曰担当。</span></p><p><span>——《竹之十德》</span></p></blockquote><h2 id='经历'><span>经历</span></h2><p><span>从小学二年级开始，父亲就给家里买了台联想的品牌机，还记得那是台赛扬CPU的普通办公机，Windows 7 旗舰版。接触它的第一时间父亲就教我注册了QQ，开通了QQ空间。从那时起我对计算机便有了最初的兴趣，我被其中很多小游戏吸引。我很乐于探索Windows系统，几乎任何可以点击交互的地方我都能研究一遍，之后由于轻信了刷Q币的套路，系统中病毒了（C盘被删了）。那时的我十分慌张，等父亲回来之后抱着那台沉重的电脑去了维修点重装系统，之后电脑才又可以正常启动。</span></p><p><span>这是我第一次接触到“重装系统”，为此我通过搜索很快就学会了重装系统的方法，正值当时Windows10刚刚发布，我就自己下载镜像，按照网上的教程做好了启动盘，把我的第一台电脑装上了Win10系统。</span></p><p><span>在小学阶段我对编程还没有认识和兴趣，只是很喜欢与同学联机玩Minecraft。由于当时MC实况主比较火（籽岷，大橙子等等都是我小学时期喜欢的UP主），所以我也模仿起了他们，自学了剪辑在优酷上发布一些与同学游玩服务器的视频，这也是我最初做自媒体的经历，不过到了快毕业的时候我就把自己的优酷频道删除了</span><del><span>（毕竟是一段黑历史）</span></del><span>。</span></p><p><span>上了初中后，由于我的第一台赛扬CPU的普通办公机性能落后，运行Win10系统都会比较卡，内存只有4个G，便有了购买第二台电脑的念头。这时是2017年，我注册了哔哩哔哩。在我的第一印象里哔哩哔哩与优酷最大的不同就是B站上有很多很多教学类视频，通过B站这个平台，我自学掌握了电脑配件的选购，装机等知识。大概在初二的时候告诉父亲我想自己装一台电脑。不过由于是父亲下单，当时配件都在北京，是我父亲把它装好的，之后父亲把电脑带回家时我又把旧电脑的500G希捷机械硬盘换到了新电脑上。新电脑最初用的是R3 2200G的AMD CPU，核显已经比较强了，但开光影玩MC的帧数达不到60帧，所以我又提议加了一块影驰1050ti的显卡，这次是我自己装上去的（）。初中阶段，我开始在B站上搬运一些视频和自己的原创剪辑，由于在MC方面也是有了更多深入的见解，所以到了后面我又开始真正做自己录音的视频教程了。那时的我对计算机网络感兴趣，通过内网穿透技术与同学一起联机变成了家常便饭。也是在那时我自己更换了家里十分卡顿的老路由器。</span></p><p><span>高中时由于疫情影响，宅家时间更多了。高一寒假我通过B站发布投票，注册了自己的第一个域名（bamboomc.top），搭建了与B站账号同名（竹MC）的博客（WordPress）网站，用于发布B站视频和一些MC资料。之后因.cn域名更好看也更流行便把域名换成了bamboomc.cn，此域名尚在，但在高三毕业后我将“竹MC的博客”网站关闭了，原因与MC的热度显著降低，我对做自媒体的兴趣降低有关。在做网站的过程中我接触到了Linux服务器，MySQL数据库，PHP编程语言，HTML等等对于我来说的新兴事物。这时对编程产生了兴趣，并奠定了高考后选择专业的倾向。</span></p><p><span>在高二寒假上网课时，学校要求“自愿“自费去购买老师们所谓的寒假补习班，对此我并不高兴</span><del><span>（毕竟确实是不少钱，好像有500元左右）</span></del><span>，所以根据之前搭建网站的经验，我分析了网课平台返回mp4视频的API，很容易就把平台破解了，能看所有年级所有班级，甚至其他学校的课程。</span></p><p><span>在高三上半学期，疫情加剧，整个学期都在家中度过，在此期间我向电信申请了动态公网，并于下半学期初购买了x86 4个2.5G网口的软路由，自己刷了iStoreOS系统更方面的管理家庭网络。在购买软路由前其实申请公网的初衷是想要自己装一台MC游戏服务器，22年12月我就完成了服务器的搭建，并学习了Proxmox VE系统，使用虚拟机的方式运行MC服务器。在此之后我会把剩余的性能租赁给其他有开MC服务器意愿的小伙伴。</span></p><p><span>高考后，我开始做新的自媒体账号“秋竹源”，致力于计算机软硬件评测，开始运营自己的淘宝店并注册了个体工商户营业执照，对自己的域名和VPS的域名分别进行了个人备案和企业备案。之前提到的服务器租赁服务，作为我的创业项目“小竹VPS”，从22年12月至今仍在运营，期间有服务器的扩张并与Frank合作运营上海节点，但是在24年11月因我家所在城市不再提供公网IP所以目前只有上海节点在运营。</span></p><p><span>我目前我在河南的一所大学读人工智能专业，也算是满足了我对计算机专业的愿望了。步入大学阶段，我选择了一些职位，例如学委，学风建设部成员，科技园中某个社团的成员。这些职位也让我不断忙了起来。我在大一阶段学到了好多，而且还拿到了全院C语言期中考试的第一名，期中考试过后，我正式进入社团，社团会要求我们每周固定的学习时长，目前是35小时。在这期间我们自学了C++，完成的C++的第一个课设。到大一下学期我参与了第十五届蓝桥杯的省赛，获得了省一的成绩。</span></p><p><span>24年5月我开始跟着社团指导老师的科研团队学习，一起开组会探讨人工智能计算机视觉的论文和项目。暑假期间我步入了自己选择的语义分割领域，阅读综述并学习了很多基础模型，大二上学期开学后再次细分方向，我目前的方向是遥感图像语义分割，在11月我初步选择了基础模型并尝试修改PyTorch代码对模型进行改进。</span></p><p><span>[未完待续]</span></p><h2 id='学业'><span>学业</span></h2><p><span>可能你注意到了，在经历部分我并没有详细说明自己的学业。其实在小学阶段我对学习并不上心，到了初中我才有了较强的竞争意识，排名会在班内前10名徘徊。不过中考成绩并不是很高，只有487分，家里出了2w让我进入了区里最好的高中的普通班读书（其实当时也有去第二好高中精英班且不花钱的机会）。高一分班后我竟然独自一个人被分到了优班，选科：物生地。由于高三上半学期所有人都在家学习，所以我们这一届在高考上的发挥也不是很好。我只考了517分，虽然超出一本线25分但因对计算机的热爱还是选择了二本的计算机相关专业。大一整年我的绩点专业排名第二，综测第一。</span></p><p><span>大学所有获奖经历：</span><a href='https://notes.smallbamboo.cn/university-awards-or-certificates-collection'><span>点击跳转</span></a></p><p><span>[未完待续]</span></p><p>&nbsp;</p></div></div>
+</body>
+</html>
